@@ -4,12 +4,14 @@ import { Layout } from './Layout';
 import { Home } from '../pages/Home';
 import { MovieDetails } from 'pages/MovieDetails';
 import { Movies } from 'pages/Movies';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
+// import { Cast } from './Cast/Cast';
+// import { Reviews } from './Reviews/Reviews';
+import { lazy } from 'react';
 
 // import { lazy, Suspense } from 'react';
 
-// const Cast = lazy(() => import('./Cast/Cast'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (

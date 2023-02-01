@@ -1,5 +1,5 @@
 import { getMovieById } from 'services/movieDbApi';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { MovieDescription } from 'components/MovieDescription';
 import { Box } from 'components/Box';
@@ -28,8 +28,9 @@ export const MovieDetails = () => {
         </Box>
         <MovieDetailsNav />
       </Box>
-
-      <Outlet />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

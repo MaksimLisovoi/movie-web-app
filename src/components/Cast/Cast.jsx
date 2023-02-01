@@ -5,7 +5,7 @@ import { getMovieCast } from 'services/movieDbApi';
 import { Box } from '../Box';
 import { CastCard } from './CastCard';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
@@ -33,3 +33,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

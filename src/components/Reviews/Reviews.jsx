@@ -4,7 +4,7 @@ import { getMovieReviews } from 'services/movieDbApi';
 import { Box } from '../Box';
 import { ReviewItem, TextContent } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
@@ -34,3 +34,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;
