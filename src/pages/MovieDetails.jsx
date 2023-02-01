@@ -1,6 +1,9 @@
 import { getMovieById } from 'services/movieDbApi';
 import { useEffect, useState } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
+import { MovieDescription } from 'components/MovieDescription';
+import { Box } from 'components/Box';
+import { MovieDetailsNav } from 'components/MovieDetailsNav';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -15,11 +18,18 @@ export const MovieDetails = () => {
     return null;
   }
 
-  console.log(movie);
-
   return (
-    <>
-      <h1>{movie.title}</h1>
-    </>
+    <main>
+      <MovieDescription movie={movie} />
+
+      <Box pt={5} pb={5}>
+        <Box as="h2" mb="4">
+          Additional information
+        </Box>
+        <MovieDetailsNav />
+      </Box>
+
+      <Outlet />
+    </main>
   );
 };

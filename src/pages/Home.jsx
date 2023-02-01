@@ -1,5 +1,5 @@
 import { Box } from 'components/Box';
-import { MoviesItem } from 'components/MoviesItem';
+import { SharedMoviesList } from 'components/SharedMoviesList';
 import { useEffect, useState } from 'react';
 
 import { getTrendingMovie } from 'services/movieDbApi';
@@ -15,19 +15,7 @@ export const Home = () => {
 
   return (
     <Box as="main">
-      <Box
-        as="ul"
-        display="flex"
-        flexWrap="wrap"
-        justifyContent="center"
-        mt={0}
-        mb={0}
-        mr={-4}
-        ml={-4}
-      >
-        {movies.length > 0 &&
-          movies.map(movie => <MoviesItem key={movie.id} movie={movie} />)}
-      </Box>
+      <SharedMoviesList movies={movies} />
     </Box>
   );
 };

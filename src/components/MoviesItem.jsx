@@ -1,6 +1,7 @@
 import { ListItem } from '../pages/Home.styled';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { Box } from './Box';
 
 const NavItem = styled(NavLink)`
   text-decoration: none;
@@ -13,16 +14,16 @@ export const MoviesItem = ({ movie }) => {
   return (
     <ListItem>
       <NavItem to={`movies/${id}`}>
-        <div>
+        <Box width="300px">
           <img
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            src={`https://image.tmdb.org/t/p/w342${poster_path}`}
             alt=""
             width="300"
           />
           <div>
             <h3>{title}</h3>
           </div>
-        </div>
+        </Box>
       </NavItem>
     </ListItem>
   );
