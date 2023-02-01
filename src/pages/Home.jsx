@@ -4,14 +4,12 @@ import { useEffect, useState } from 'react';
 
 import { getTrendingMovie } from 'services/movieDbApi';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     getTrendingMovie().then(setMovies);
   }, []);
-
-  console.log(movies);
 
   return (
     <Box as="main">
@@ -19,3 +17,5 @@ export const Home = () => {
     </Box>
   );
 };
+
+export default Home;

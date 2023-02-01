@@ -15,7 +15,7 @@ const NavItem = styled(NavLink)`
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: ${p => p.theme.colors.primary};
+    color: ${p => p.theme.colors.accent};
   }
 `;
 

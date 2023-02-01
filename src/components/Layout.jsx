@@ -10,7 +10,7 @@ export const Layout = () => {
     <Box>
       <AppBar />
       <Container>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<h1>Loading...</h1>}>
           <Outlet />
         </Suspense>
       </Container>

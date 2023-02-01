@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { getSearchedMovies } from 'services/movieDbApi';
 
-export const Movies = () => {
+const Movies = () => {
   const [searhQuery, setSearhQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [movies, setMovies] = useState([]);
@@ -43,3 +43,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

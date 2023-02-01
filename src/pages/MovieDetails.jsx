@@ -5,7 +5,7 @@ import { MovieDescription } from 'components/MovieDescription';
 import { Box } from 'components/Box';
 import { MovieDetailsNav } from 'components/MovieDetailsNav';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   //   const location = useLocation();
@@ -34,3 +34,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;
