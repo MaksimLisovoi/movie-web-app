@@ -12,25 +12,23 @@ const Reviews = () => {
     getMovieReviews(movieId).then(setReviews);
   }, [movieId]);
 
-  //   if (!reviews) {
-  //     return;
-  //   }
-
-  console.log(reviews);
-
   return (
     <>
-      <Box as="ul">
-        {reviews.map(review => (
-          <ReviewItem>
-            <Box as="h3" mb="5">
-              {review.author}
-            </Box>
+      {reviews.length > 0 ? (
+        <Box as="ul">
+          {reviews.map(review => (
+            <ReviewItem>
+              <Box as="h3" mb="5">
+                {review.author}
+              </Box>
 
-            <TextContent>{review.content}</TextContent>
-          </ReviewItem>
-        ))}
-      </Box>
+              <TextContent>{review.content}</TextContent>
+            </ReviewItem>
+          ))}
+        </Box>
+      ) : (
+        <h3> We dont have any reviews for this movie.</h3>
+      )}
     </>
   );
 };

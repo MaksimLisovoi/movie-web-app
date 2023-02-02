@@ -4,6 +4,7 @@ import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { MovieDescription } from 'components/MovieDescription';
 import { Box } from 'components/Box';
 import { MovieDetailsNav } from 'components/MovieDetailsNav';
+import { Loader } from 'components/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -18,6 +19,8 @@ const MovieDetails = () => {
     return null;
   }
 
+  console.log(movie);
+
   return (
     <main>
       <MovieDescription movie={movie} />
@@ -28,7 +31,7 @@ const MovieDetails = () => {
         </Box>
         <MovieDetailsNav />
       </Box>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </main>
