@@ -20,8 +20,6 @@ export const SearchBar = ({ onSubmit }) => {
     // setQuery('');
 
     onSubmit(query);
-
-    // setSearchParams({ q: '' });
   };
 
   return (

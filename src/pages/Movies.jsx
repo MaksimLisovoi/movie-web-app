@@ -9,13 +9,14 @@ import { getSearchedMovies } from 'services/movieDbApi';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
-  const [searhQuery, setSearhQuery] = useState('');
   // const [currentPage, setCurrentPage] = useState(1);
+  const [searhQuery, setSearhQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const location = useLocation();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') ?? 1;
+
   // const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
@@ -51,8 +52,7 @@ const Movies = () => {
   };
 
   const loadMore = () => {
-    // setCurrentPage(prevPage => prevPage + 1);
-    setSearchParams({ query: searhQuery, page: page + 1 });
+    setSearchParams({ query: searhQuery, page: Number(page) + 1 });
   };
 
   return (
