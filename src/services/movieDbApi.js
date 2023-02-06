@@ -27,10 +27,10 @@ export async function getMovieById(movieId) {
   }
 }
 
-export async function getSearchedMovies({ searhQuery, currentPage = 1 }) {
+export async function getSearchedMovies({ searhQuery, page = 1 }) {
   try {
     const movies = await axios.get(
-      `${baseUrl}/search/movie?api_key=${key}&query=${searhQuery}&page=${currentPage}`
+      `${baseUrl}/search/movie?api_key=${key}&query=${searhQuery}&page=${page}`
     );
 
     return movies.data.results;
@@ -38,6 +38,12 @@ export async function getSearchedMovies({ searhQuery, currentPage = 1 }) {
     console.error(error.message);
   }
 }
+
+// export function getSearchedMovies({ searhQuery, currentPage = 1 }) {
+//   return axios.get(
+//     `${baseUrl}/search/movie?api_key=${key}&query=${searhQuery}&page=${currentPage}`
+//   );
+// }
 
 export async function getMovieCast(movieId) {
   try {
