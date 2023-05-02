@@ -15,6 +15,26 @@ export async function getTrendingMovie() {
   }
 }
 
+export async function getGenres() {
+  try {
+    const genres = await axios.get(
+      `${baseUrl}genre/movie/list?api_key=${key}&language=en-US`
+    );
+
+    return genres.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+  // return fetch(
+  //   `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`
+  // )
+  //   .then(res => res.json())
+  //   .then(result => {
+  //     genres = result.genres;
+  //     return result.genres;
+  //   });
+}
+
 export async function getMovieById(movieId) {
   try {
     const movieDetails = await axios.get(

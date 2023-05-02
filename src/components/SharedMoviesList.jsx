@@ -1,7 +1,16 @@
 import { Box } from 'components/Box';
 import { MoviesItem } from './MoviesItem';
+import { getGenres } from 'services/movieDbApi';
+import { useEffect, useState } from 'react';
 
-export const SharedMoviesList = ({ movies }) => {
+export function SharedMoviesList({ movies }) {
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    getGenres().then(setGenres);
+  }, []);
+
+  console.log(genres);
   return (
     <Box
       as="ul"
@@ -14,7 +23,12 @@ export const SharedMoviesList = ({ movies }) => {
       ml={-4}
     >
       {movies.length > 0 &&
-        movies.map(movie => <MoviesItem key={movie.id} movie={movie} />)}
+        movies.map(movie => (
+          <MoviesItem key={movie.id} movie={movie} genres={genres} />
+        ))}
+
+      {/* {movies.length > 0 &&
+              movies.map(movie => <MoviesItem key={movie.id} movie={movie} />)} */}
     </Box>
   );
-};
+}

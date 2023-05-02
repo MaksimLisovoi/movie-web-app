@@ -7,6 +7,7 @@ import queryString from 'query-string';
 
 import { getSearchedMovies } from 'services/movieDbApi';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Movies = () => {
   // const [currentPage, setCurrentPage] = useState(1);
@@ -16,8 +17,6 @@ const Movies = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') ?? 1;
-
-  // const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (location.pathname && location.search) {
@@ -65,8 +64,25 @@ const Movies = () => {
         justifyContent="center"
       >
         <SearchBar onSubmit={onChangeQuery} />
-        {movies.length > 0 && <SharedMoviesList movies={movies} />}
-        <button onClick={loadMore}>Load more</button>
+        {movies.length > 0 && (
+          <InfiniteScroll
+            style={{
+              overflow: 'hidden',
+            }}
+            dataLength={movies.length} //This is important field to render the next data
+            next={loadMore}
+            hasMore={true}
+            loader={<h4>Loading...</h4>}
+            endMessage={
+              <p style={{ textAlign: 'center' }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
+          >
+            <SharedMoviesList movies={movies} />
+          </InfiniteScroll>
+        )}
+        {/* <button onClick={loadMore}>Load more</button> */}
       </Box>
     </>
   );
