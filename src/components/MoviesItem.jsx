@@ -10,7 +10,7 @@ const NavItem = styled(NavLink)`
 `;
 
 export const MoviesItem = ({ movie, genres }) => {
-  const { id, poster_path, title, release_date, genre_ids: genre } = movie;
+  const { id, poster_path, title, release_date } = movie;
   const location = useLocation();
 
   console.log(genres);
